@@ -192,23 +192,6 @@
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAGLLZdZgn/EUd4=",
-											"_parent": {
-												"$ref": "AAAAAAGLLZWm5398vCY="
-											},
-											"model": {
-												"$ref": "AAAAAAGLLZdZfn/BqAU="
-											},
-											"font": "Arial;13;0",
-											"left": 173,
-											"top": 145,
-											"width": 219.3115234375,
-											"height": 13,
-											"text": "is_admin: Boolean = false",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAGLLZep/n/LWJI=",
 											"_parent": {
 												"$ref": "AAAAAAGLLZWm5398vCY="
@@ -218,7 +201,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 173,
-											"top": 160,
+											"top": 145,
 											"width": 219.3115234375,
 											"height": 13,
 											"text": "remember_token: HashedString = null",
@@ -235,7 +218,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 173,
-											"top": 175,
+											"top": 160,
 											"width": 219.3115234375,
 											"height": 13,
 											"text": "created_at: DateTime",
@@ -252,7 +235,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 173,
-											"top": 190,
+											"top": 175,
 											"width": 219.3115234375,
 											"height": 13,
 											"text": "updated_at: DateTime = null",
@@ -263,7 +246,7 @@
 									"left": 168,
 									"top": 95,
 									"width": 229.3115234375,
-									"height": 113
+									"height": 98
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -319,7 +302,7 @@
 							"left": 168,
 							"top": 70,
 							"width": 229.3115234375,
-							"height": 138,
+							"height": 123,
 							"showVisibility": false,
 							"nameCompartment": {
 								"$ref": "AAAAAAGLLZWm5393QDQ="
@@ -4592,16 +4575,6 @@
 							},
 							"name": "password",
 							"type": "HashedString"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGLLZdZfn/BqAU=",
-							"_parent": {
-								"$ref": "AAAAAAGLLZWm5n90f3g="
-							},
-							"name": "is_admin",
-							"type": "Boolean",
-							"defaultValue": "false"
 						},
 						{
 							"_type": "UMLAttribute",
