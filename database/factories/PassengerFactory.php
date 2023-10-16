@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
+use App\Models\Passenger;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
