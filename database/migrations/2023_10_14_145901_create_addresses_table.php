@@ -20,8 +20,7 @@ return new class extends Migration
             $table->char('province', 2);
             $table->char('zip_code', 5);
 
-            $table->foreignId('client_id')
-                ->constrained('clients');
+            $table->morphs('addressable');
             $table->timestamps();
         });
     }
