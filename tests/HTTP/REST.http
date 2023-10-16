@@ -1,13 +1,28 @@
-### setXSRFCookie
-
+### Set XSRF-TOKEN cookie
 GET http://localhost:8000/sanctum/csrf-cookie
 Accept: application/json
 
-### login
+> {%
+    const cookies = response.headers.valuesOf('Set-Cookie');
 
+    for (let cookie of cookies) {
+        if (cookie.includes('XSRF-TOKEN')) {
+            const cookieData = cookie.split(';')[0];
+
+            const [ _, cookieValue ] = cookieData.split('=');
+
+            client.global.set('csrfToken', cookieValue);
+
+            break;
+        }
+    }
+ %}
+
+### login
 POST http://localhost:8000/login
 Accept: application/json
 Content-Type: application/json
+X-CSRF-TOKEN: {{csrfToken}}
 
 {
     "email": "admin@admin.com",
