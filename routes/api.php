@@ -24,8 +24,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResources([
         'services' => ServiceController::class,
     ]);
-
-
+    Route::get('/shared/enums/{object}', EnumsController::class);
 });
 
-    Route::get('/shared/enums/{object}', EnumsController::class);
