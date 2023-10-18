@@ -22,15 +22,15 @@
 
         public function label(): string {
             return match($this) {
-                self::Pending => 'in_attesa',
-                self::Accepted => 'accettato',
-                self::InProgress => 'in_corso',
-                self::Declined => 'declinato',
-                self::Rejected => 'rigettato',
-                self::Cancelled => 'cancellato',
-                self::Processed => 'processato',
-                self::Completed => 'completato',
-                self::Done => 'chiuso',
+                self::Pending => 'In attesa',
+                self::Accepted => 'Accettato',
+                self::InProgress => 'In corso',
+                self::Declined => 'Declinato',
+                self::Rejected => 'Rigettato',
+                self::Cancelled => 'Cancellato',
+                self::Processed => 'Processato',
+                self::Completed => 'Completato',
+                self::Done => 'Chiuso',
             };
         }
     }
