@@ -1,6 +1,7 @@
 <?php
 
     use App\Http\Controllers\EnumsController;
+    use App\Http\Controllers\OrderController;
     use App\Http\Controllers\ServiceController;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Route;
@@ -23,7 +24,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResources([
         'services' => ServiceController::class,
+
     ]);
     Route::get('/shared/enums/{object}', EnumsController::class);
 });
+
+    Route::apiResource('orders',OrderController::class);
 
