@@ -31,8 +31,8 @@ class StoreServiceRequest extends FormRequest
             ],
             'name' => 'required|string|min:3|max:255',
             'description' => 'nullable|string',
-            'fee' => 'required|decimal:2',
-            'additional_fee' => 'nullable|decimal:2',
+            'fee' => 'required|decimal:0,2',
+            'additional_fee' => 'nullable|decimal:0,2',
         ];
     }
 
