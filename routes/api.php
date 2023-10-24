@@ -1,5 +1,6 @@
 <?php
 
+    use App\Http\Controllers\ClientController;
     use App\Http\Controllers\EnumsController;
     use App\Http\Controllers\OrderController;
     use App\Http\Controllers\ServiceController;
@@ -30,4 +31,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
     Route::apiResource('orders',OrderController::class);
+    Route::apiResource('clients', ClientController::class);
 

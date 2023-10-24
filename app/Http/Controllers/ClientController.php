@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
+use App\Http\Resources\ClientResource;
 use App\Models\Client;
-use Illuminate\Http\Request;
+
 
 class ClientController extends Controller
 {
@@ -12,15 +15,19 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        return ClientResource::collection(Client::paginate(10));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $client = Client::create($data);
+
+        return new ClientResource($client);
     }
 
     /**
@@ -28,15 +35,21 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        return new ClientResource($client);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Client $client)
+    public function update(UpdateClientRequest $request, Client $client)
     {
-        //
+        $data = $request->validated();
+
+        $client->fill($data);
+
+        $client->save();
+
+        return new ClientResource($client);
     }
 
     /**
