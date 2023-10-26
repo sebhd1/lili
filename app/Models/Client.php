@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\Addressable;
+use App\Models\Concerns\IsAddressable;
+use App\Models\Concerns\IsPassengerLike;
+use App\Models\Concerns\PassengerLike;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class Client extends Model
+class Client extends Model implements Addressable, PassengerLike
 {
     use HasFactory;
+    use IsAddressable;
+    use IsPassengerLike;
 
     protected $fillable = [
         'name',
@@ -18,16 +22,6 @@ class Client extends Model
         'full_name',
         'phone',
     ];
-
-    public function orders(): HasMany
-    {
-        return $this->hasMany(Order::class);
-    }
-
-    public function addresses(): MorphMany
-    {
-        return $this->morphMany(Address::class, 'addressable');
-    }
 
     public function latestOrder(): HasOne
     {

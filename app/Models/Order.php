@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Order extends Model
 {
@@ -17,8 +16,6 @@ class Order extends Model
         'price',
         'decimal',
         'discount',
-        'is_client_a_passenger',
-        'client_id',
         'service_id',
         'starts_at',
         'ends_at',
@@ -34,13 +31,15 @@ class Order extends Model
         return $this->hasMany(Payment::class);
     }
 
-    public function client(): BelongsTo
+    public function passengers(): MorphToMany
     {
-        return $this->belongsTo(Client::class);
+        return $this->morphedByMany(Passenger::class, 'passenger', 'order_passenger')
+            ->using(OrderPassenger::class);
     }
 
-    public function passengers(): BelongsToMany
+    public function clients(): MorphToMany
     {
-        return $this->belongsToMany(Passenger::class);
+        return $this->morphedByMany(Client::class, 'passenger', 'order_passenger')
+            ->using(OrderPassenger::class);
     }
 }

@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\Addressable;
+use App\Models\Concerns\IsAddressable;
+use App\Models\Concerns\IsPassengerLike;
+use App\Models\Concerns\PassengerLike;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class Passenger extends Model
+class Passenger extends Model implements PassengerLike, Addressable
 {
     use HasFactory;
+    use IsPassengerLike;
+    use IsAddressable;
 
     protected $fillable = [
         'name',
@@ -18,14 +22,4 @@ class Passenger extends Model
         'phone',
         'is_under_age',
     ];
-
-    public function addresses(): MorphMany
-    {
-        return $this->morphMany(Address::class, 'addressable');
-    }
-
-    public function orders(): BelongsToMany
-    {
-        return $this->belongsToMany(Order::class);
-    }
 }
