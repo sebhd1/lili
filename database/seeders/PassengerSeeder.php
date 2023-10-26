@@ -14,6 +14,6 @@ class PassengerSeeder extends Seeder
     public function run(): void
     {
         Passenger::factory(5)->create();
-        Passenger::factory()->hasAttached(Order::factory())->create();
+        Passenger::factory()->hasAttached(Order::factory(), relationship: 'orders')->create();
     }
 }

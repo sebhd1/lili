@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('order_passenger', function (Blueprint $table) {
+            $table->id();
+            $table->boolean('to_pickup')->default(true);
+            $table->boolean('is_caller')->default(false);
+
             $table->foreignId('order_id')
                 ->constrained('orders');
 
-            $table->foreignId('passenger_id')
-                ->constrained('passengers');
+            $table->morphs('passenger');
         });
     }
 
