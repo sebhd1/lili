@@ -17,7 +17,7 @@ class UpdateClientRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:255',
             'surname' => 'required|string|min:3|max:255',
-            'phone' => 'required|string|unique',
+            'phone' => 'required|string',
         ];
     }
 
