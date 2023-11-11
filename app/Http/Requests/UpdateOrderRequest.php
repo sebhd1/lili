@@ -26,7 +26,7 @@ class UpdateOrderRequest extends FormRequest
                 Rule::enum(OrderStatus::class),
             ],
             'price' => 'required|decimal:0,2',
-            'discount' => 'decimal::0,2',
+            'discount' => 'nullable|decimal:0,2',
             'is_client_a_passenger' => 'boolean',
             'client_id' => [
                 'required',
@@ -41,7 +41,7 @@ class UpdateOrderRequest extends FormRequest
                 'exists:'.Service::class
             ],
             'starts_at' => 'required|date',
-            'ends_at' => 'required|date',
+            'ends_at' => 'nullable|date',
         ];
     }
 
