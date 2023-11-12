@@ -28,17 +28,12 @@ class StoreOrderRequest extends FormRequest
             'price' => 'required|decimal:0,2',
             'discount' => 'nullable|decimal:0,2',
             'is_client_a_passenger' => 'boolean',
-            'client_id' => [
-                'required',
-                'int',
-                'min:1',
-                'exists:'.Client::class
-            ],
+
             'service_id' => [
                 'required',
                 'int',
                 'min:1',
-                'exists:'.Service::class
+                'exists:'.Service::class . ',id'
             ],
             'starts_at' => 'required|date',
             'ends_at' => 'nullable|date',

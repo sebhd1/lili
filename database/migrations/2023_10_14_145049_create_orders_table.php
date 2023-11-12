@@ -22,7 +22,7 @@ return new class extends Migration
                 ->constrained('services');
 
             $table->dateTime('starts_at');
-            $table->dateTime('ends_at');
+            $table->dateTime('ends_at')->nullable();
             $table->timestamps();
         });
     }
